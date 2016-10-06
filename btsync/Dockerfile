@@ -1,13 +1,14 @@
-FROM ubuntu:trusty
+FROM alpine:latest
 MAINTAINER Boris Gorbylev <ekho@ekho.name>
 
-ADD http://download-lb.utorrent.com/endpoint/btsync/os/linux-x64/track/stable /btsync.tar.gz
+ADD https://download-cdn.resilio.com/stable/linux-x64/resilio-sync_x64.tar.gz /sync.tar.gz
 ADD start.sh /start.sh
 
-ENV LANG en_US.UTF-8
-RUN locale-gen $LANG && \
-    tar xf /btsync.tar.gz && \
-    rm /btsync.tar.gz
+RUN tar xf /sync.tar.gz && \
+    rm /sync.tar.gz
+
+WORKDIR /
+RUN uname -a && pwd && ls -alh `pwd` && ls -alh / && ./rslsync --help
 
 VOLUME ["/data"]
 EXPOSE 3369/udp 8888

@@ -2,7 +2,7 @@
 
 ## Description
 
-A Dockerfile for [BitTorrent Sync](http://www.bittorrent.com/sync/). The default login is `admin` and the default password is `password`. These can be changed in `/data/btsync.conf`.
+A Dockerfile for [Resilio Sync](https://www.resilio.com/individuals/). The default login is `admin` and the default password is `password`. These can be changed in `/data/sync.conf`.
 
 ## Volumes
 
